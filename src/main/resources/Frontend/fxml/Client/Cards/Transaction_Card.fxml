@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="214.0" prefWidth="825.0" style="-fx-background-color: #ffffff; -fx-background-radius: 5; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 5,0,0,0);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.Client.Cards.Transaction_CardController">
+   <children>
+      <Label fx:id="TC_Type" layoutX="18.0" layoutY="15.0" prefHeight="57.0" prefWidth="143.0" text="Received">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <Label fx:id="TC_Name" layoutX="213.0" layoutY="24.0" prefHeight="40.0" prefWidth="312.0" text="Mohamed Mahmoud">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <Label layoutX="595.0" layoutY="16.0" prefHeight="57.0" prefWidth="88.0" text="Date : ">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <Label layoutX="595.0" layoutY="79.0" prefHeight="57.0" prefWidth="79.0" text="Time : ">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <Label fx:id="TC_Date" layoutX="683.0" layoutY="24.0" prefHeight="40.0" prefWidth="150.0" text="2/5/2025">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <Label fx:id="TC_Time" layoutX="683.0" layoutY="88.0" prefHeight="40.0" prefWidth="121.0" text="4:00 PM">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <Label layoutX="597.0" layoutY="144.0" prefHeight="57.0" prefWidth="121.0" text="Amount : ">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <Label fx:id="TC_Money" layoutX="770.0" layoutY="152.0" prefHeight="40.0" prefWidth="121.0" text="200 ">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <Label fx:id="BF_SPrice1" layoutX="718.0" layoutY="152.0" prefHeight="40.0" prefWidth="52.0" text="EGP">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <Label layoutX="18.0" layoutY="72.0" prefHeight="57.0" prefWidth="121.0" text="Message :">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <Label fx:id="TC_Message" alignment="TOP_LEFT" layoutX="146.0" layoutY="82.0" prefHeight="109.0" prefWidth="431.0" text="Sent Money">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
