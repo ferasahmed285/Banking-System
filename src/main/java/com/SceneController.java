@@ -61,7 +61,7 @@ public class SceneController {
     }
 
     public static void SwitchToDashboard(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(SceneController.class.getResource("/Frontend/fxml/Client/Pages/Dashboard_page.fxml"));
+        FXMLLoader loader = new FXMLLoader(SceneController.class.getResource("/Frontend/fxml/Client/Pages/Dashboard_Page.fxml"));
         Parent root = loader.load();
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
@@ -69,7 +69,7 @@ public class SceneController {
         stage.show();
     }
     public static void SwitchToTransactions(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(SceneController.class.getResource("/Frontend/fxml/Client/Pages/Transaction_page.fxml"));
+        FXMLLoader loader = new FXMLLoader(SceneController.class.getResource("/Frontend/fxml/Client/Pages/Transaction_Page.fxml"));
         Parent root = loader.load();
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);

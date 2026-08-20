@@ -17,27 +17,40 @@ public class UIFeatureTest extends ApplicationTest {
 
     @Override
     public void start(Stage stage) throws Exception {
-        new BankingSystem().start(stage);
+        com.Backend.Database.Data.clients.clear();
+        com.Backend.Database.Data.accounts.clear();
+        com.Backend.Entities.Client testClient = new com.Backend.Entities.Client("Client Alpha", "alpha@gmail.com", "01010101110","Alpha123@", java.time.LocalDate.of(2000,5,12));
+        com.Backend.DAO.ClientDAO.add(testClient);
+        
+        com.Backend.Entities.Account acc = com.Backend.DAO.AccountDAO.getAccountByClient(testClient);
+        acc.setStatus(com.Backend.Entities.Account.AccountStatus.Verified);
+        
+        // Start directly at Dashboard
+        BankingSystem.client = testClient;
+        javafx.fxml.FXMLLoader fxmlLoader = new javafx.fxml.FXMLLoader(BankingSystem.class.getResource("/Frontend/fxml/Client/Pages/Dashboard_Page.fxml"));
+        javafx.scene.Scene scene = new javafx.scene.Scene(fxmlLoader.load());
+        stage.setScene(scene);
+        stage.show();
     }
 
     /**
-     * UI Component Rendering Test: Ensures the Login screen loads and vital nodes exist.
+     * Functional UI Test: Proper rendering of status label
      */
     @Test
-    public void testLoginScreenRenders() {
-        // Verify that the login button exists by its text
-        FxAssert.verifyThat(".button", LabeledMatchers.hasText("Login"));
+    public void testStatusLabelRendering() {
+        sleep(1000);
+        // Verify the status label is rendered correctly
+        FxAssert.verifyThat("#DB_V", LabeledMatchers.hasText("Verified"));
     }
 
     /**
-     * UI Input Validation Test: Ensures the text fields for Email and Password are interactable.
+     * Functional UI Test: Buttons disabled based on state
      */
     @Test
-    public void testTextFieldsExist() {
-        TextField emailField = lookup("#LP_Email").queryAs(TextField.class);
-        TextField passwordField = lookup("#LP_Password").queryAs(TextField.class);
-
-        assertNotNull(emailField, "Email text field should be present.");
-        assertNotNull(passwordField, "Password text field should be present.");
+    public void testButtonsDisabledBasedOnState() {
+        sleep(1000);
+        // Since the user is Verified, buttons should be enabled
+        javafx.scene.control.Button depositBtn = lookup("Deposit").queryAs(javafx.scene.control.Button.class);
+        assertFalse(depositBtn.isDisabled(), "Deposit button should be enabled for verified accounts");
     }
 }

@@ -139,16 +139,16 @@ public class Account {
      * @param status The new status to transition to.
      */
     public void setStatus(AccountStatus status) {
-        if (this.status == AccountStatus.Closed && status == AccountStatus.Suspended)
-                this.status = status;
-        else if (this.status == AccountStatus.Unverified && status == AccountStatus.Suspended)
-                this.status = status;
-        else if (this.status == AccountStatus.Unverified && status == AccountStatus.Verified)
-                this.status = status;
-        else if (this.status == AccountStatus.Verified && status == AccountStatus.Closed)
-                this.status = status;
+        if (this.status == AccountStatus.Unverified && status == AccountStatus.Verified)
+            this.status = status;
         else if (this.status == AccountStatus.Verified && status == AccountStatus.Suspended)
-                this.status = status;
+            this.status = status;
+        else if (this.status == AccountStatus.Verified && status == AccountStatus.Closed)
+            this.status = status;
+        else if (this.status == AccountStatus.Suspended && status == AccountStatus.Verified) // Appeal
+            this.status = status;
+        else if (this.status == AccountStatus.Suspended && status == AccountStatus.Closed) // Admin Action
+            this.status = status;
     }
 
     /**
