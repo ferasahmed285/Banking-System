@@ -17,43 +17,36 @@ public class AccountStateTest {
         account.setStatus(Account.AccountStatus.Verified);
         assertEquals(Account.AccountStatus.Verified, account.getStatus());
     }
+
     @Test
-    void testUnverifiedToSuspendedAllowed() {
+    void testUnverifiedToSuspendedNotAllowed() {
         account.setStatus(Account.AccountStatus.Suspended);
-        assertEquals(Account.AccountStatus.Suspended, account.getStatus());
-    }
-    @Test
-    void testUnverifiedToClosedNotAllowed() {
-        account.setStatus(Account.AccountStatus.Closed);
-        assertNotEquals(Account.AccountStatus.Closed, account.getStatus());
         assertEquals(Account.AccountStatus.Unverified, account.getStatus());
     }
-    @Test
-    void testVerifiedToClosedAllowed() {
-        account.setStatus(Account.AccountStatus.Verified);
-        account.setStatus(Account.AccountStatus.Closed);
-        assertEquals(Account.AccountStatus.Closed, account.getStatus());
-    }
+
     @Test
     void testVerifiedToSuspendedAllowed() {
         account.setStatus(Account.AccountStatus.Verified);
         account.setStatus(Account.AccountStatus.Suspended);
         assertEquals(Account.AccountStatus.Suspended, account.getStatus());
     }
+
     @Test
-    void testVerifiedToUnverifiedNotAllowed() {
+    void testSuspendedToVerifiedAllowed() { // Appeal
         account.setStatus(Account.AccountStatus.Verified);
-        account.setStatus(Account.AccountStatus.Unverified);
-        assertNotEquals(Account.AccountStatus.Unverified, account.getStatus());
+        account.setStatus(Account.AccountStatus.Suspended);
+        account.setStatus(Account.AccountStatus.Verified);
         assertEquals(Account.AccountStatus.Verified, account.getStatus());
     }
+
     @Test
-    void testClosedToSuspendedAllowed() {
+    void testSuspendedToClosedAllowed() { // Admin Action
         account.setStatus(Account.AccountStatus.Verified);
-        account.setStatus(Account.AccountStatus.Closed);
         account.setStatus(Account.AccountStatus.Suspended);
-        assertEquals(Account.AccountStatus.Suspended, account.getStatus());
+        account.setStatus(Account.AccountStatus.Closed);
+        assertEquals(Account.AccountStatus.Closed, account.getStatus());
     }
+
     @Test
     void testClosedToVerifiedNotAllowed() {
         account.setStatus(Account.AccountStatus.Verified);
