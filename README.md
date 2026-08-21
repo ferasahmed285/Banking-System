@@ -17,8 +17,9 @@ The project is a simplified banking application built with Java and JavaFX. It i
 Extensive testing has been implemented in the `src/test/java` directory:
 *   **Black-Box Testing:** Boundary Value Analysis (BVA) and Equivalence Partitioning (EP) for transaction limits and constraints.
 *   **White-Box Testing:** 100% branch coverage achieved for core methods like `deposit` and `withdraw`.
-*   **State-Based Testing:** Validating allowed and illegal actions based on the account's current lifecycle state.
-*   **UI Testing:** Automated testing implemented using **TestFX** to verify JavaFX UI components.
+*   **State-Based Testing:** Validating allowed and illegal actions based on the account's current lifecycle state, fixing previously unmapped transitions like appeals.
+*   **UI Testing:** Automated testing implemented using **TestFX** to verify JavaFX UI components, input field statuses, and correct disabling of buttons.
+*   **Integration Testing:** Fully simulates the user flow (`GUI -> Controller -> Account`) programmatically without GUI flakiness, verifying FXML injection and DAO integration.
 *   **Test-Driven Development (TDD):** The credit score feature was built strictly following Red-Green-Refactor principles.
 
 ## Project Structure
