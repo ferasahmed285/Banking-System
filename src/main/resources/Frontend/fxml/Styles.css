@@ -1,5 +1,5 @@
 .header-1{
-    -fx-border-color: linear-gradient(to bottom right, #4f46e5, #1e3a8a);
+    -fx-border-color: linear-gradient(to bottom right, #059669, #022c22);
     -fx-border-width: 0 0 0 2px;
     -fx-padding: 0 0 0 5px;
 }
@@ -11,7 +11,7 @@
 }
 
 .blueButton {
-    -fx-background-color: #3b82f6;
+    -fx-background-color: #10b981;
     -fx-text-fill: white;
     -fx-font-size: 16px;
     -fx-font-weight: bold;
@@ -22,27 +22,27 @@
     -fx-border-width: 0px;
 }
 .blueButton:hover {
-    -fx-background-color: #2563eb;    /* Slightly darker blue on hover */
+    -fx-background-color: #059669;    /* Slightly darker green on hover */
 }
 
 .btn-1{
-    -fx-background-color: linear-gradient(to bottom right, #4f46e5, #1e3a8a);
+    -fx-background-color: linear-gradient(to bottom right, #059669, #022c22);
     -fx-cursor: hand;
     -fx-text-fill: #fff;
     -fx-font-size: 14px;
     -fx-font-family: Arial;
 }
 .btn-1:hover{
-    -fx-background-color: linear-gradient(to bottom right, #6366f1, #1e40af);
+    -fx-background-color: linear-gradient(to bottom right, #10b981, #064e3b);
 }
 
 .table-view{
     -fx-padding: 0;
     -fx-border-radius: 8px;
-    -fx-border-color: linear-gradient(to bottom right, #4f46e5, #1e3a8a);
+    -fx-border-color: linear-gradient(to bottom right, #059669, #022c22);
 }
 .table-view .column-header-background{
-    -fx-background-color: linear-gradient(to bottom right, #4f46e5, #1e3a8a);
+    -fx-background-color: linear-gradient(to bottom right, #059669, #022c22);
     -fx-background-insets: 0 0 0 0;
     -fx-background-radius: 8px 8px 0 0 ;
 }

@@ -19,8 +19,17 @@ public class DepositMoney_FormController {
     private Account account= AccountDAO.getAccountByClient(BankingSystem.client);
 
     public void DepositMoney(ActionEvent event) {
-        this.account.deposit(Integer.parseInt(DMF_Amount.getText()));
-        cancel(event);
+        try {
+            int amount = Integer.parseInt(DMF_Amount.getText());
+            if (this.account.deposit(amount)) {
+                com.AlertBox.alert("Success", "Deposit successful!", "Close");
+                cancel(event);
+            } else {
+                com.AlertBox.alert("Transaction Failed", "Invalid amount or account is not verified.", "Close");
+            }
+        } catch (NumberFormatException e) {
+            com.AlertBox.alert("Invalid Input", "Please enter a valid numeric amount.", "Close");
+        }
     }
 
     public void cancel(ActionEvent event) {

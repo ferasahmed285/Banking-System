@@ -84,14 +84,14 @@ public class AdminTransaction_PageController {
     private void refreshTables() {
 
         int selectedTransactionIndex = HT.getSelectionModel().getSelectedIndex();
-        Transaction selectedShowtime = HT.getSelectionModel().getSelectedItem();
+        Transaction selectedItem = HT.getSelectionModel().getSelectedItem();
 
         transactionList.setAll(Data.transactions);
 
         filteredTransaction.setPredicate(filteredTransaction.getPredicate());
 
-        if (selectedShowtime != null && HT.getItems().contains(selectedShowtime)) {
-            HT.getSelectionModel().select(selectedShowtime);
+        if (selectedItem != null && HT.getItems().contains(selectedItem)) {
+            HT.getSelectionModel().select(selectedItem);
         } else if (selectedTransactionIndex >= 0 && selectedTransactionIndex < HT.getItems().size()) {
             HT.getSelectionModel().select(selectedTransactionIndex);
         } else {
@@ -138,7 +138,7 @@ public class AdminTransaction_PageController {
             SceneController.SwitchToAdminTransactionsForm(event ,selectedTransaction);
             refreshTables();
         } else {
-            AlertBox.alert("Information", "Please select a showtime to edit.", "Close");
+            AlertBox.alert("Information", "Please select a transaction to edit.", "Close");
         }
     }
 

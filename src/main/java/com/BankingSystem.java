@@ -18,7 +18,7 @@ public class BankingSystem extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(BankingSystem.class.getResource("/Frontend/fxml/Login_Page.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Banking System");
+        stage.setTitle("Emerald Financial Banking System");
         stage.setScene(scene);
         stage.show();
     }
