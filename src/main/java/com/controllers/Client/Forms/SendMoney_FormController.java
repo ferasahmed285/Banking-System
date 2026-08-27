@@ -23,8 +23,17 @@ public class SendMoney_FormController {
     private Account account= AccountDAO.getAccountByClient(BankingSystem.client);
 
     public void DepositMoney(ActionEvent event) {
-        this.account.transfer(SMF_AccountNumber.getText(),Integer.parseInt(SMF_Amount.getText()),SMF_Message.getText());
-        cancel(event);
+        try {
+            int amount = Integer.parseInt(SMF_Amount.getText());
+            if (this.account.transfer(SMF_AccountNumber.getText(), amount, SMF_Message.getText())) {
+                com.AlertBox.alert("Success", "Transfer successful!", "Close");
+                cancel(event);
+            } else {
+                com.AlertBox.alert("Transaction Failed", "Invalid account, insufficient funds, or account is not verified.", "Close");
+            }
+        } catch (NumberFormatException e) {
+            com.AlertBox.alert("Invalid Input", "Please enter a valid numeric amount.", "Close");
+        }
     }
 
     public void cancel(ActionEvent event) {

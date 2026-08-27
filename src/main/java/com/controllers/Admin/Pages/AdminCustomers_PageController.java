@@ -131,7 +131,7 @@ public class AdminCustomers_PageController {
             SceneController.SwitchToProfile(event, selectedClient);
             refreshTables();
         } else {
-            AlertBox.alert("Information", "Please select a showtime to edit.", "Close");
+            AlertBox.alert("Information", "Please select a client to edit.", "Close");
         }
     }
 

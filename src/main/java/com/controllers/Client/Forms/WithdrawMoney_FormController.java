@@ -20,8 +20,17 @@ public class WithdrawMoney_FormController {
     private Account account= AccountDAO.getAccountByClient(BankingSystem.client);
 
     public void withdrawMoney(ActionEvent event) {
-        this.account.withdraw(Integer.parseInt(WMF_Amount.getText()));
-        cancel(event);
+        try {
+            int amount = Integer.parseInt(WMF_Amount.getText());
+            if (this.account.withdraw(amount)) {
+                com.AlertBox.alert("Success", "Withdrawal successful!", "Close");
+                cancel(event);
+            } else {
+                com.AlertBox.alert("Transaction Failed", "Insufficient funds or account is not verified.", "Close");
+            }
+        } catch (NumberFormatException e) {
+            com.AlertBox.alert("Invalid Input", "Please enter a valid numeric amount.", "Close");
+        }
     }
 
     public void cancel(ActionEvent event) {

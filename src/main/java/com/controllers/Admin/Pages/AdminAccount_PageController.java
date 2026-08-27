@@ -121,7 +121,7 @@ public class AdminAccount_PageController {
             SceneController.SwitchToAdminAccountsForm(event, selectedAccounttime);
             refreshTables();
         } else {
-            AlertBox.alert("Information", "Please select a showtime to edit.", "Close");
+            AlertBox.alert("Information", "Please select a account to edit.", "Close");
         }
     }
 

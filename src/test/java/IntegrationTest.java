@@ -68,11 +68,14 @@ public class IntegrationTest {
 
         // 4. Simulate Button Click -> Controller Validation -> Account.deposit()
         // We pass null for ActionEvent since the controller doesn't strictly use it except for closing the stage
+        com.AlertBox.testMode = true;
         try {
             controller.DepositMoney(null);
         } catch (NullPointerException e) {
             // Ignore the NPE from event.getSource().getScene().getWindow() because we aren't in a real Stage.
             // The important part is that account.deposit() was called before the stage closing logic!
+        } finally {
+            com.AlertBox.testMode = false;
         }
 
         // 5. Verify Backend State Changed

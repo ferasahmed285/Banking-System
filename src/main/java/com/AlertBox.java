@@ -11,7 +11,11 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 public class AlertBox {
+    public static boolean testMode = false;
+    
     public static void alert(String title, String message, String buttonMessage) {
+        if (testMode) return;
+        
         Stage window = new Stage();
 
         window.initModality(Modality.APPLICATION_MODAL);

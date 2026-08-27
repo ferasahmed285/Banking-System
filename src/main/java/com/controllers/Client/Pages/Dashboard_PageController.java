@@ -99,20 +99,23 @@ public class Dashboard_PageController {
     public void goToSendMoneyForm(ActionEvent event) throws IOException {
         if (account.getStatus() != Account.AccountStatus.Verified) {
             AlertBox.alert("Account Not Verified", "Your account is not verified. You cannot send money.","close");
+            return;
         }
         SceneController.SwitchToSendMoney(event);
         goToDashboard(event);
     }
     public void goToWithdrawForm(ActionEvent event) throws IOException {
         if (account.getStatus() != Account.AccountStatus.Verified) {
-            AlertBox.alert("Account Not Verified", "Your account is not verified. You cannot send money.","close");
+            AlertBox.alert("Account Not Verified", "Your account is not verified. You cannot withdraw money.","close");
+            return;
         }
         SceneController.SwitchToWithdrawMoney(event);
         goToDashboard(event);
     }
     public void goToDepositForm(ActionEvent event) throws IOException {
         if (account.getStatus() != Account.AccountStatus.Verified) {
-            AlertBox.alert("Account Not Verified", "Your account is not verified. You cannot send money.","close");
+            AlertBox.alert("Account Not Verified", "Your account is not verified. You cannot deposit money.","close");
+            return;
         }
         SceneController.SwitchToDepositMoney(event);
         goToDashboard(event);
